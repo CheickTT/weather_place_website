@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="content-section">
+      <form method="POST" action="">
+          {{ form.hidden_tag() }}
+          <fieldset class="form-group">
+
+             <div class="form-group">
+                {{ form.city_name.label(class="form-control-label") }}
+                {% if form.city_name.errors %}
+                  {{ form.city_name(class="form-control form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                    {% for error in form.city_name.errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                  </div>
+                {% else %}
+                  {{ form.city_name(class="form-control form-control-lg") }}
+                {% endif %}
+              </div>
+              {% if form.city_name.errors %}
+                {{ form.city_name(class="form-control form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                    {% for error in form.city_name.errors%}
+                      <span>{{error}}</span>
+                    {% endfor %}
+                  </div>
+              {% endif %}
+
+              <div class="form-group">
+                {{ form.distance.label(class="form-control-label") }}
+                {% if form.distance.errors %}
+                  {{ form.distance(class="form-control form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                    {% for error in form.distance.errors%}
+                      <span>{{error}}</span>
+                    {% endfor %}
+                  </div>
+                {% else %}
+                  {{ form.distance(class="form-control form-control-lg") }}
+                {% endif %}
+              </div>
+              <div class="form-group">
+                {{ form.activity.label(class="form-control-label") }}
+                {% if form.activity.errors %}
+                  {{ form.activity(class="form-control form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                  {% for error in form.activity.errors%}
+                    <span>{{error}}</span>
+                  {% endfor %}
+                  </div>
+                {% else %}
+                  {{ form.activity(class="form-control form-control-lg") }}
+                {% endif %}
+              </div>
+              
+              <div class="form-group">
+                {{ form.condition.label(class="form-control-label") }}
+                {{ form.condition(class="form-control form-control-lg") }}
+              </div>
+            </fieldset>
+
+            <div class="form-group">
+              {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+      </div>
+{% endblock content %}
