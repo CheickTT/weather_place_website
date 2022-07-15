@@ -17,8 +17,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 crypt = Bcrypt(app)
 
-
-
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, nullable=False)
@@ -39,7 +37,7 @@ class User(db.Model):
 
 @app.route("/")
 def home():
-    return render_template('home.html', subtitle='Home Page', text='This is the home page')
+    return render_template('home.html', title='Home Page')
 
 
 @app.route("/register", methods=['GET', 'POST'])
@@ -51,7 +49,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash(f'Account created for {form.username.data}!', 'success')
-        return redirect(url_for('search')) # if so - send to home page
+        return redirect(url_for('search')) # if so - send to search page
     return render_template('register.html', title='Register', form=form)
  
 
@@ -66,7 +64,7 @@ def login():
             return redirect(url_for('login'))
         else:
             print("valid credential")
-            return redirect(url_for('search')) # if so - send to home page
+            return redirect(url_for('search')) # if so - send to search page
     return render_template('login.html', title='Login', form=form)
 
 
@@ -84,7 +82,7 @@ def search():
                                              condition = "")
 
         session["suggested_places"] = get_places(suggested_places)
-        return redirect(url_for('result'))
+        return redirect(url_for('result'))#send to result place
     return render_template('search_place.html', title='Search Page', form= form)
 
 @app.route("/result", methods=['GET', 'POST'])

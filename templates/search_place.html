@@ -1,9 +1,15 @@
 {% extends "layout.html" %}
 {% block content %}
-  <div class="content-section">
+  <div>
       <form method="POST" action="">
           {{ form.hidden_tag() }}
           <fieldset class="form-group">
+
+            <p>The Activities Finder allows you to find places for the following activities:
+              commercial, sport,beach, catering,
+              entertainment, leisure.
+            </p>
+            <p>We also propose the following accomodations: wheelchair, and dogs.</p>
 
              <div class="form-group">
                 {{ form.city_name.label(class="form-control-label") }}

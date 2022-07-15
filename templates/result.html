@@ -1,14 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
 
-    <h2>Result matching your research</h2>
+    <h4>Result matching your research</h4>
     <table>
     {% for place in places%}
         <tr><td>{{place["name"]}}</td>  <td>{{place["address"]}}</td></tr>
     {% endfor %}
     </table>
 
-    <h2>Here is a few place that we suggest you to visit</h2>
+    <h4>Here is a few place that we suggest you to visit</h4>
     <table>
     {% for place in suggested_places%}
         <tr><td>{{place["name"]}}</td>  <td>{{place["address"]}}</td></tr>
