@@ -1,1 +1,2 @@
-web: gunicorn run:app
+web: gunicorn
+main: Flask(__name__)
