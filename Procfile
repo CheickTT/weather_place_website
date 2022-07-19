@@ -1,2 +1,2 @@
 web: gunicorn
-PYTHON_FILE: app(__name__)
+main: Flask(__name__)
