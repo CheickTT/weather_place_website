@@ -25,7 +25,7 @@ class User(db.Model):
 
 
     def __repr__(self):
-        return f"User('{self.username}', '{self.email}')"
+        return f'User("{self.username}"", "{self.email}")'
 
     def check_user_credentials(username,password_candidate):
         user = User.query.filter_by( username = username).first()
